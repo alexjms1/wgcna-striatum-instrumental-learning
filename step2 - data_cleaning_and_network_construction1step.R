@@ -63,7 +63,9 @@ xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
 main = paste("Mean connectivity"))
 text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
 
+#power of 12 looks good.  
 #network construction
+#note single block here - this takes a while and a lot of RAM - consider virtual memory (especially if using an SSD)
 
 bwnet = blockwiseModules(datExpr, maxBlockSize=100000,
 power = 12, TOMType = "unsigned", minModulesize=30,

@@ -12,7 +12,7 @@ options(stringsAsFactors=FALSE)
 enableWGCNAThreads()
 
 pdf(file = "strOneStepInput%.03d.pdf", onefile=FALSE, compress=FALSE)
-
+#clustering expression data to detect outliers
 StriatData=read.csv("striatum_expression1.csv")
 datExpr0=as.data.frame(t(StriatData[,-c(1)]))
 names(datExpr0)=StriatData$Probe_Id
@@ -24,6 +24,7 @@ par(cex=0.6)
 par(mar=c(0,4,2,0))
 plot(sampleTree,main="Sample clustering to detect outliers", sub="", xlab="", cex.lab = 1.5,
 cex.axis = 1.5, cex.main = 2)
+#cutheight of 16 looks good
 abline(h=16,col="red")
 clust=cutreeStatic(sampleTree,cutHeight=16,minSize=10)
 table(clust)

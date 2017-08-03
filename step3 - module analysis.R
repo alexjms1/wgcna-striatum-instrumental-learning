@@ -3,7 +3,7 @@ memory.size(max=FALSE)
 memory.limit(40000)
 
 
-setwd("C:/FastLMM/WGCNA/One-step-str")
+setwd("C:/Users/Ajame/Google Drive/FastLMM/WGCNA/One-step-str")
 
 
 library(WGCNA)
@@ -300,7 +300,7 @@ write.csv(datKME,file="MM_values_all_probes.csv")
 #}
 
 
-#c("brown"x, "salmon"x, "turquoise"x, "green"x, "greenyellow"x, "yellow"x,"red"x, "cyan", "purple", "blue")
+#modules of interest --> c("brown", "salmon", "turquoise", "green", "greenyellow", "yellow","red", "cyan", "purple", "blue")
 
 
 GS1=as.numeric(cor(ActiveBC,datExpr, use="p"))
