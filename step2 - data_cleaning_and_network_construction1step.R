@@ -23,7 +23,7 @@ nGenes=ncol(datExpr)
 nSamples=nrow(datExpr)
 
 #load phenotype data
-PhenoData=read.csv("AllPhenotypes_Genotyped_NBL_USE.csv")
+PhenoData=read.csv("Rates_BC_and_non.csv")
 
 Striat=rownames(datExpr)
 traitRows=match(Striat,PhenoData$Strains)
@@ -36,11 +36,11 @@ traitColors = numbers2colors(datTraits, signed = FALSE);
 plotDendroAndColors(sampleTree2, traitColors,
 groupLabels = names(datTraits),
 main = "Sample dendrogram and trait heatmap")
-save(datExpr, datTraits,file="Striatum-01-dataInput.RData")
+save(datExpr, datTraits,file="Striatum-1step-dataInput.RData")
 
 #Step 2: Network Construction
 
-lnames=load(file="Striatum-01-dataInput.RData")
+lnames=load(file="Striatum-1step-dataInput.RData")
 options(stringsAsFactors=FALSE)
 enableWGCNAThreads()
 
@@ -84,10 +84,10 @@ bwModuleColors=labels2colors(bwLabels)
 
 sizeGrWindow(6,6)
 plotDendroAndColors(bwnet$dendrograms[[1]], bwModuleColors[bwnet$blockGenes[[1]]],
-"Module colors", main = "Gene dendrogram and module colors in block 1",
+"Module colors", main = "Gene dendrogram and module colors in single block",
 dendroLabels = FALSE, hang = 0.03,
 addGuide = TRUE, guideHang = 0.05)
 
 MEs=bwnet$MEs
 geneTree=bwnet$dendrograms[[1]]
-save(MEs, moduleLabels, bwmoduleColors,geneTree,file="Striatum-1step-networkConstruction-auto.Rdata")
+save(MEs, moduleLabels, bwmoduleColors,geneTree,file="str-1step-networkConstruction-auto.RData")
