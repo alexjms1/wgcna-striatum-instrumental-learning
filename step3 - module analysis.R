@@ -263,7 +263,7 @@ vis = exportNetworkToVisANT(modTOM,
 file = paste("VisANTInput-", module, ".txt", sep=""),
 weighted = TRUE,
 threshold = 0,
-probeToGene = data.frame(annot$Probe, annot$Gene) )
+probeToGene = data.frame(annot$Probe, annot$Gene))
 }
 
 #Step 7: MM, intramodular connectivity, and screening for intramodular hub genes
